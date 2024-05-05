@@ -17,7 +17,6 @@ export default function ChatHeader({ user }: { user: User | undefined }) {
         redirectTo: location.origin + "/auth/callback",
       },
     });
-    router.refresh();
   };
 
   const handleLogout = async () => {
