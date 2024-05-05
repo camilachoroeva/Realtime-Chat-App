@@ -33,9 +33,10 @@ export function DeleteAlert() {
     (state) => state.optimisticDeleteMessage
   );
 
-  const handleDeleteMessage = async () => {
+	const handleDeleteMessage = async () => {
     const supabase = supabaseBrowser();
     optimisticDeleteMessage(actionMessage?.id!);
+
     const { error } = await supabase
       .from("messages")
       .delete()
@@ -48,10 +49,11 @@ export function DeleteAlert() {
     }
   };
 
+
   return (
     <AlertDialog>
       <AlertDialogTrigger>
-        <button id="trigger-delete"></button>
+        <div id="trigger-delete"></div>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

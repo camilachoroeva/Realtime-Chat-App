@@ -14,10 +14,6 @@ import { useUser } from "@/lib/store/user";
 export default function Message({ message }: { message: Imessage }) {
   const user = useUser((state) => state.user);
 
-  const currentTime = new Date(message.created_at);
-  const hours = currentTime.getHours();
-  const minutes = currentTime.getMinutes();
-  const formattedTime = `${hours}:${minutes < 10 ? "0" + minutes : minutes}`;
 
   return (
     <div className="flex gap-2 items-center">
@@ -34,7 +30,7 @@ export default function Message({ message }: { message: Imessage }) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <h1 className="font-bold">{message.users?.display_name}</h1>
-            <h1 className="text-gray-400 text-sm">{formattedTime}</h1>
+            <h1 className="text-gray-400 text-sm" ></h1>
             {message.is_edit && (
               <h1 className="text-sm text-gray-400">edited</h1>
             )}
