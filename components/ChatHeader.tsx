@@ -17,6 +17,7 @@ export default function ChatHeader({ user }: { user: User | undefined }) {
         redirectTo: location.origin + "/auth/callback",
       },
     });
+    router.refresh();
   };
 
   const handleLogout = async () => {
@@ -30,9 +31,7 @@ export default function ChatHeader({ user }: { user: User | undefined }) {
       <div className="p-5 border-b flex items-center justify-between h-full">
         <div>
           <h1 className="text-xl font-bold">Daily Chat</h1>
-
-            <ChatPresence />
-
+          <ChatPresence />
         </div>
         {user ? (
           <Button onClick={handleLogout}>Logout</Button>
